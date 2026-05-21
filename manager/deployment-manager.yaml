@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manager-deployment
+  labels:
+    app: manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manager
+  template:
+    metadata:
+      labels:
+        app: manager
+    spec:
+      containers:
+      - name: manager
+        image: 922806890686.dkr.ecr.us-east-1.amazonaws.com/manager:latest
+        ports:
+        - containerPort: 5001
+        # Load GitHub credentials from Kubernetes Secret
+        env:
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-credentials
+              key: GITHUB_TOKEN
+        - name: GITHUB_OWNER
+          valueFrom:
+            secretKeyRef:
+              name: github-credentials
+              key: GITHUB_OWNER
+        - name: GITHUB_REPO
+          valueFrom:
+            secretKeyRef:
+              name: github-credentials
+              key: GITHUB_REPO
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5001
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5001
+          initialDelaySeconds: 10
+          periodSeconds: 10
