@@ -45,7 +45,7 @@ if [[ "$MODE" == "--browser" ]]; then
     BODY_ENC=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$BODY'''))")
     LABELS_ENC=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$LABELS'''))")
 
-    open "$LAB_MANAGER_URL/?title=$TITLE_ENC&description=$DESC_ENC&body=$BODY_ENC&labels=$LABELS_ENC"
+    open "https://lab-ticket-manager.onrender.com/?title=$TITLE_ENCODED&description=$DESCRIPTION_ENCODED&body=$BODY_ENCODED&labels=$LABELS_ENCODED"
 
     echo "  Browser opened with pre-filled fields."
     echo ""
