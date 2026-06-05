@@ -125,7 +125,8 @@ kubectl get service hello-eks-service
 [Add screenshots here of:]
 -<img width="1148" height="658" alt="Screenshot 2026-06-04 at 8 01 02 PM" src="https://github.com/user-attachments/assets/6979eb07-7c0e-48b6-828e-784ba3ffb65b" />
 <img width="1894" height="948" alt="Screenshot 2026-06-04 at 8 01 29 PM" src="https://github.com/user-attachments/assets/3f866d8c-fbed-4fba-b3a8-ae623d5b0378" />
-- GitHub Issues created from tickets
+<img width="1453" height="1133" alt="Screenshot 2026-06-04 at 8 12 16 PM" src="https://github.com/user-attachments/assets/7ccb914c-6e6a-44af-a916-2186a921109c" />
+
 
 ## What This Shows
 
